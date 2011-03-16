@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CRON(8)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+  </head>
+  <body>
+    <pre>
+      CRON(8)                                                   CRON(8)
+
+      <b>NAME</b>
+             cron - daemon to execute scheduled commands (Vixie Cron)
+
+      <b>SYNOPSIS</b>
+             cron
+
+      <b>DESCRIPTION</b>
+             <i>Cron</i>  should be started from /etc/rc or /etc/rc.local.  It
+             will return immediately, so you don't  need  to  start  it
+             with '&amp;'.
+
+             <i>Cron</i>  searches /var/spool/cron for crontab files which are
+             named after accounts in /etc/passwd;  crontabs  found  are
+             loaded  into  memory.  <i>Cron</i> also searches for /etc/crontab
+             and the files in the /etc/cron.d/ directory, which are  in
+             a  different  format (see <i>crontab(5)).</i>  <i>Cron</i> then wakes up
+             every minute, examining all stored crontabs, checking each
+             command  to see if it should be run in the current minute.
+             When executing commands, any output is mailed to the owner
+             of  the  crontab (or to the user named in the MAILTO envi-
+             ronment variable in the crontab, if such exists).
+
+             Additionally, <i>cron</i> checks each minute to see if its  spool
+             directory's  modtime  (or the modtime on <i>/etc/crontab)</i> has
+             changed, and if it has, <i>cron</i> will then examine the modtime
+             on all crontabs and reload those which have changed.  Thus
+             <i>cron</i> need not be restarted whenever a crontab file is mod-
+             ified.   Note that the <i>Crontab</i>(1) command updates the mod-
+             time of the spool directory whenever it changes a crontab.
+
+      <b>SEE</b> <b>ALSO</b>
+             <a href="/crontab.1.html">crontab(1)</a>, <a href="/">crontab(5)</a>
+
+      <b>AUTHOR</b>
+             Paul Vixie &lt;paul@vix.com&gt;
+
+                               20 December 1993                       1
+
+      --
+      crontab.org is maintained by <a href="http://ilya.sukhar.com">Ilya Sukhar</a>
+    </pre>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      var pageTracker = _gat._getTracker("UA-3828328-2");
+      pageTracker._initData();
+      pageTracker._trackPageview();
+    </script>
+  </body>
+</html>
